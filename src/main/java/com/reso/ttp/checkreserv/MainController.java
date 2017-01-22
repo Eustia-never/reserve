@@ -1,17 +1,26 @@
 package com.reso.ttp.checkreserv;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import org.apache.commons.lang.StringUtils;
 
-public class MainController
-{
+public class MainController {
 
+    @FXML
+    private TextField firstNameField;
 
-    @FXML private TextField firstNameField;
-    @FXML private TextField lastNameField;
-    @FXML private Label messageLabel;
+    @FXML
+    private TextField lastNameField;
+
+    @FXML
+    private Label messageLabel;
+
+    @FXML
+    private ComboBox eventBox;
+
+    public void MainController() {
+        eventBox = new ComboBox();
+    }
 
     public void sayHello() {
 
@@ -20,24 +29,32 @@ public class MainController
 
         StringBuilder builder = new StringBuilder();
 
-        if (!StringUtils.isEmpty(firstName)) {
+        if (!StringUtils.isEmpty(firstName))
+          {
             builder.append(firstName);
-        }
+          }
 
-        if (!StringUtils.isEmpty(lastName)) {
-            if (builder.length() > 0) {
+        if (!StringUtils.isEmpty(lastName))
+          {
+            if (builder.length() > 0)
+              {
                 builder.append(" ");
-            }
+              }
             builder.append(lastName);
-        }
+          }
 
-        if (builder.length() > 0) {
+        if (builder.length() > 0)
+          {
             String name = builder.toString();
 
             messageLabel.setText("Hello " + name);
-        } else {
+          } else
+          {
             messageLabel.setText("Hello mysterious person");
-        }
+          }
+    }
+
+    public void addEvent() {
     }
 
 }

@@ -5,9 +5,9 @@
  */
 package com.reso.ttp.checkreserv.resources;
 
-import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
+import javafx.scene.Scene;
 import lombok.Data;
 
 /**
@@ -17,6 +17,8 @@ import lombok.Data;
 @Data
 public class Reso {
 
-    private List<Event> events = new LinkedList<Event>();
+    private List<Event> events = new LinkedList<>();
+
+    private Scene scene;
 
 }

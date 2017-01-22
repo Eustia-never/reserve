@@ -5,11 +5,22 @@
  */
 package com.reso.ttp.checkreserv.resources;
 
+import java.util.LinkedList;
+import java.util.List;
+import lombok.*;
+
 /**
  *
  * @author Hirotaka.Sasaki
  */
+@Data
 public class Event {
+
+    @NonNull
     private String name;
-    
+
+    private String data;
+
+    private List<Person> persons = new LinkedList<>();
+
 }
