@@ -1,28 +1,24 @@
 package com.reso.ttp.checkreserv;
 
 import com.reso.ttp.checkreserv.resources.Const;
-import com.reso.ttp.checkreserv.resources.Reso;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javax.inject.Inject;
 import lombok.*;
 
-@Data
 public class MainApp extends Application {
 
-    private String fxmlFile;
+    @Setter
+    @Getter
+    private static String fxmlFile;
 
-    @Inject
-    Reso reso;
+    public static void main(String[] args) throws Exception {
 
-    public void main(String[] args) throws Exception {
+        setFxmlFile(Const.MAIN_FILE_NAME);
+
         launch(args);
-
-        setFxmlFile(Const.mainFileName);
-
     }
 
     @Override
@@ -32,7 +28,7 @@ public class MainApp extends Application {
         Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(getFxmlFile()));
 
         Scene scene = new Scene(rootNode, 400, 200);
-        scene.getStylesheets().add(Const.styleSheetName);
+        scene.getStylesheets().add(Const.STYLE_SHEET_NAME);
 
         stage.setTitle("イベント予約確認");
         stage.setScene(scene);

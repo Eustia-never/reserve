@@ -5,10 +5,22 @@
  */
 package com.reso.ttp.checkreserv.resources;
 
+import lombok.*;
+
 /**
  *
  * @author user
  */
+@Data
 public class Person {
-    
+
+    @NonNull
+    private String id;
+
+    @NonNull
+    private String name;
+
+    private boolean payed;
+
+    private boolean passedBand;
 }
