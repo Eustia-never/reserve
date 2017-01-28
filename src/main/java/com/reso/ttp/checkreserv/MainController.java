@@ -1,7 +1,11 @@
 package com.reso.ttp.checkreserv;
 
+import com.reso.ttp.checkreserv.resources.ConstFxml;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import org.apache.commons.lang.StringUtils;
 
 public class MainController {
@@ -29,32 +33,37 @@ public class MainController {
 
         StringBuilder builder = new StringBuilder();
 
-        if (!StringUtils.isEmpty(firstName))
-          {
+        if (!StringUtils.isEmpty(firstName)) {
             builder.append(firstName);
-          }
+        }
 
-        if (!StringUtils.isEmpty(lastName))
-          {
-            if (builder.length() > 0)
-              {
+        if (!StringUtils.isEmpty(lastName)) {
+            if (builder.length() > 0) {
                 builder.append(" ");
-              }
+            }
             builder.append(lastName);
-          }
+        }
 
-        if (builder.length() > 0)
-          {
+        if (builder.length() > 0) {
             String name = builder.toString();
 
             messageLabel.setText("Hello " + name);
-          } else
-          {
+        } else {
             messageLabel.setText("Hello mysterious person");
-          }
+        }
     }
 
     public void addEvent() {
+    }
+
+    public void addMember() {
+        MainApp app = new MainApp();
+        app.setFxmlFile(ConstFxml.ADD_MEM_NAME);
+        try {
+            app.start(new Stage());
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
