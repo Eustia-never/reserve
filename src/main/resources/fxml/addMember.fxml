@@ -5,17 +5,18 @@
 <?import javafx.scene.control.*?>
 <?import org.tbee.javafx.scene.layout.fxml.MigPane?>
 
-<MigPane id="rootPane" fx:controller="com.reso.ttp.checkreserv.MainController"
+<MigPane id="rootPane" fx:controller="com.reso.ttp.checkreserv.AddMemberController"
         styleClass="main-panel" 
         layout="insets 20"
         cols="[label, pref!][grow, 50::]"
         rows=""
         xmlns:fx="http://javafx.com/fxml">
-
+    
+    <Label text="Member ID:" /> <TextField fx:id="mamberID" prefColumnCount="30" MigPane.cc="growx, wrap" />
     <Label text="First Name:" /> <TextField fx:id="firstNameField" prefColumnCount="30" MigPane.cc="growx, wrap" />
     <Label text="Last Name:" />	<TextField fx:id="lastNameField" prefColumnCount="30" MigPane.cc="growx, wrap" />
 
-    <Button text="イベント追加" onAction="#addEvent" MigPane.cc="skip, gap :push, gaptop 15, wrap" />
-    <Button text="イベント選択" onAction="#sayHello" MigPane.cc="skip, gap :push, gaptop 15, wrap" />
+    <Button text="追加" onAction="#addMember" MigPane.cc="skip, gap :push, gaptop 15, wrap" />
+    <Button text="CLEAR" onAction="#clear" MigPane.cc="skip, gap :push, gaptop 15, wrap" />
 
 </MigPane >

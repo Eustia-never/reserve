@@ -1,6 +1,6 @@
 package com.reso.ttp.checkreserv;
 
-import com.reso.ttp.checkreserv.resources.Const;
+import com.reso.ttp.checkreserv.resources.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +16,7 @@ public class MainApp extends Application {
 
     public static void main(String[] args) throws Exception {
 
-        setFxmlFile(Const.MAIN_FILE_NAME);
+        setFxmlFile(ConstFxml.MAIN_FILE_NAME);
 
         launch(args);
     }
