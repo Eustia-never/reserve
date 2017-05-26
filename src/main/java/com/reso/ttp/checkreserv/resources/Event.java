@@ -7,7 +7,9 @@ package com.reso.ttp.checkreserv.resources;
 
 import java.util.LinkedList;
 import java.util.List;
-import lombok.*;
+
+import lombok.Data;
+import lombok.NonNull;
 
 /**
  *
@@ -19,8 +21,14 @@ public class Event {
     @NonNull
     private String name;
 
-    private String data;
+    @NonNull
+    private String date;
 
     private List<Person> persons = new LinkedList<>();
+
+    public Event(String name, String date) {
+        this.name = name;
+        this.date = date;
+    }
 
 }

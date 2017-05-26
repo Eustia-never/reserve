@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import org.tbee.javafx.scene.layout.fxml.MigPane?>
+<?import javafx.scene.layout.*?>
 
-<MigPane id="rootPane" fx:controller="com.reso.ttp.checkreserv.AddMemberController"
-        styleClass="main-panel" 
-        layout="insets 20"
-        cols="[label, pref!][grow, 50::]"
-        rows=""
-        xmlns:fx="http://javafx.com/fxml">
-    
-    <Label text="Member ID:" /> <TextField fx:id="mamberID" prefColumnCount="30" MigPane.cc="growx, wrap" />
-    <Label text="First Name:" /> <TextField fx:id="firstNameField" prefColumnCount="30" MigPane.cc="growx, wrap" />
-    <Label text="Last Name:" />	<TextField fx:id="lastNameField" prefColumnCount="30" MigPane.cc="growx, wrap" />
-
-    <Button text="追加" onAction="#addMember" MigPane.cc="skip, gap :push, gaptop 15, wrap" />
-    <Button text="CLEAR" onAction="#clear" MigPane.cc="skip, gap :push, gaptop 15, wrap" />
-
-</MigPane >
+<AnchorPane id="AnchorPane" prefHeight="218.0" prefWidth="400.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reso.ttp.checkreserv.AddMemberController">
+    <children>
+      <Button layoutX="31.0" layoutY="164.0" mnemonicParsing="false" onAction="#addEvent" prefHeight="23.0" prefWidth="96.0" text="追加" />
+      <Button layoutX="146.0" layoutY="164.0" mnemonicParsing="false" onAction="#addEvent" prefHeight="23.0" prefWidth="96.0" text="clear" />
+      <Button layoutX="258.0" layoutY="164.0" mnemonicParsing="false" onAction="#addEvent" prefHeight="23.0" prefWidth="96.0" text="キャンセル" />
+      <Label layoutX="39.0" layoutY="74.0" prefHeight="23.0" prefWidth="37.0" text="苗字" />
+      <Label layoutX="39.0" layoutY="113.0" prefHeight="23.0" prefWidth="63.0" text="名前" />
+      <Label layoutX="37.0" layoutY="35.0" prefHeight="23.0" prefWidth="37.0" text="ID" />
+      <TextField fx:id="lastNameField" layoutX="111.0" layoutY="74.0" prefHeight="23.0" prefWidth="251.0" />
+      <TextField fx:id="firstNameField" layoutX="111.0" layoutY="112.0" prefHeight="23.0" prefWidth="251.0" />
+      <TextField fx:id="id" layoutX="110.0" layoutY="34.0" prefHeight="23.0" prefWidth="251.0" />
+    </children>
+</AnchorPane>

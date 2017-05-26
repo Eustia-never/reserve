@@ -1,69 +1,68 @@
 package com.reso.ttp.checkreserv;
 
-import com.reso.ttp.checkreserv.resources.ConstFxml;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.reso.ttp.checkreserv.DAO.EventData;
+import com.reso.ttp.checkreserv.resources.Const;
+import com.reso.ttp.checkreserv.resources.ConstFxml;
+import com.reso.ttp.checkreserv.resources.Reso;
+import com.reso.ttp.checkreserv.util.CSVScanner;
+import com.reso.ttp.checkreserv.util.CheckData;
+
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
-import org.apache.commons.lang.StringUtils;
 
-public class MainController {
+public class MainController implements Initializable {
 
-    @FXML
-    private TextField firstNameField;
+	@FXML
+	private ComboBox<EventData> eventBox;
 
-    @FXML
-    private TextField lastNameField;
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		showEvent();
+	}
 
-    @FXML
-    private Label messageLabel;
+	private void showEvent() {
+		{
+			EventData eventData;
+			CSVScanner csv = new CSVScanner(Const.EVENT_FILE);
 
-    @FXML
-    private ComboBox eventBox;
+			List<String[]> eventList = csv.read();
+			CheckData.dataSize(eventList, 2);
 
-    public void MainController() {
-        eventBox = new ComboBox();
-    }
+			for (String[] event : eventList) {
+				CheckData.dataFormat(event[0], Const.DATE);
+				eventData = new EventData(event[0], event[1]);
+				eventBox.getItems().add(eventData);
+			}
+		}
+	}
 
-    public void sayHello() {
+	@FXML
+	public void addEvent() {
 
-        String firstName = firstNameField.getText();
-        String lastName = lastNameField.getText();
+	}
 
-        StringBuilder builder = new StringBuilder();
-
-        if (!StringUtils.isEmpty(firstName)) {
-            builder.append(firstName);
-        }
-
-        if (!StringUtils.isEmpty(lastName)) {
-            if (builder.length() > 0) {
-                builder.append(" ");
-            }
-            builder.append(lastName);
-        }
-
-        if (builder.length() > 0) {
-            String name = builder.toString();
-
-            messageLabel.setText("Hello " + name);
-        } else {
-            messageLabel.setText("Hello mysterious person");
-        }
-    }
-
-    public void addEvent() {
-    }
-
-    public void addMember() {
-        MainApp app = new MainApp();
-        app.setFxmlFile(ConstFxml.ADD_MEM_NAME);
-        try {
-            app.start(new Stage());
-        } catch (Exception ex) {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+	public void addMember() {
+		MainApp app = new MainApp();
+		Reso.FxmlFile = ConstFxml.ADD_MEM_NAME;
+		try {
+			app.start(new Stage());
+		} catch (Exception ex) {
+			StackTraceElement[] stElem = ex.getStackTrace();
+			for (int i = 0; i < stElem.length; i++) {
+				System.out.print(stElem[i].getClassName() + ": ");
+				System.out.print(stElem[i].getMethodName() + ": ");
+				System.out.println(stElem[i].getLineNumber() + ";");
+			}
+			Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
 
 }

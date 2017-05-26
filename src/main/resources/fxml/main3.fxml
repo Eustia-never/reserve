@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import org.tbee.javafx.scene.layout.fxml.MigPane?>
+
+<MigPane id="rootPane" fx:controller="com.reso.ttp.checkreserv.MainController"
+         styleClass="main-panel" 
+         layout="insets 20"
+         cols="[label, pref!][grow, 50::]"
+         rows=""
+         xmlns:fx="http://javafx.com/fxml">
+
+    <ComboBox fx:id="eventBox" layoutX="0" layoutY="0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+    
+    <Button text="メンバー追加" onAction="#addMember" MigPane.cc="skip, gap :push, gaptop 15, wrap" />
+    <Button text="イベント追加" onAction="#addEvent" MigPane.cc="skip, gap :push, gaptop 15, wrap" />
+    <Button text="イベント選択" onAction="#sayHello" MigPane.cc="skip, gap :push, gaptop 15, wrap" />
+
+</MigPane >

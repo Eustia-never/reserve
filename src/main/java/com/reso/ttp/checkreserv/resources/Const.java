@@ -11,17 +11,23 @@ package com.reso.ttp.checkreserv.resources;
  */
 public class Const {
 
-    public static final String RESOURCE = "../resource";
-
     public static final String STYLE_SHEET_NAME = "/styles/styles.css";
-
-    public static final String EVENT_FILE = "/data/event.csv";
-
-    public static final String MEM_FILE = "/data/event.csv";
-
-    public static final String EVENT_PASS = "/data/event/";
 
     public static final String CSV = ".csv";
 
-    public static final String PUNCTUATION = ",";
+    public static final String CONSTPASS = "com/reso/ttp/checkreserv/resources";
+
+    public static final String PATH = System.getProperty("user.dir");
+
+    public static final String PUNCTUATION = ", ";
+
+    public static final String RESOURCE = PATH.replace(CONSTPASS, "") + "/src/main/resources";
+
+    public static final String EVENT_PASS = RESOURCE + "/data/event/";
+
+    public static final String EVENT_FILE = RESOURCE + "/data/event.csv";
+
+    public static final String MEM_FILE = RESOURCE + "/data/member.csv";
+
+    public static final String DATE = "date";
 }

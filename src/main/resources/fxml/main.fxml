@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import org.tbee.javafx.scene.layout.fxml.MigPane?>
+<?import javafx.scene.layout.*?>
 
-<MigPane id="rootPane" fx:controller="com.reso.ttp.checkreserv.MainController"
-        styleClass="main-panel" 
-        layout="insets 20"
-        cols="[label, pref!][grow, 50::]"
-        rows=""
-        xmlns:fx="http://javafx.com/fxml">
-
-    <Label text="First Name:" /> <TextField fx:id="firstNameField" prefColumnCount="30" MigPane.cc="growx, wrap" />
-    <Label text="Last Name:" />	<TextField fx:id="lastNameField" prefColumnCount="30" MigPane.cc="growx, wrap" />
-
-    <Button text="メンバー追加" onAction="#addMember" MigPane.cc="skip, gap :push, gaptop 15, wrap" />
-    <Button text="イベント追加" onAction="#addEvent" MigPane.cc="skip, gap :push, gaptop 15, wrap" />
-    <Button text="イベント選択" onAction="#sayHello" MigPane.cc="skip, gap :push, gaptop 15, wrap" />
-
-</MigPane >
+<AnchorPane id="AnchorPane" prefHeight="218.0" prefWidth="400.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reso.ttp.checkreserv.MainController">
+    <children>
+        <ComboBox fx:id="eventBox" layoutX="22.0" layoutY="41.0" prefHeight="25.0" prefWidth="350.0" />
+        <Button layoutX="13.0" layoutY="141.0" mnemonicParsing="false" onAction="#addMember" prefHeight="23.0" prefWidth="120.0" text="メンバー追加" />
+        <Button layoutX="140.0" layoutY="141.0" mnemonicParsing="false" onAction="#addEvent" prefHeight="23.0" prefWidth="120.0" text="イベント追加" />
+        <Button layoutX="270.0" layoutY="141.0" mnemonicParsing="false" onAction="#addEvent" prefHeight="23.0" prefWidth="120.0" text="イベント選択" />
+    </children>
+</AnchorPane>

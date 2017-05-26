@@ -5,20 +5,19 @@
  */
 package com.reso.ttp.checkreserv.resources;
 
-import java.util.LinkedList;
-import java.util.List;
 import javafx.scene.Scene;
-import lombok.Data;
+import javafx.stage.Stage;
 
 /**
  *
- * @author user
+ * @author Hirotaka.Sasaki
  */
-@Data
 public class Reso {
 
-    private List<Event> events = new LinkedList<>();
+	public static Scene SCEME;
 
-    private Scene scene;
+	public static Stage STAGE = null;
+
+	public static String FxmlFile = null;
 
 }

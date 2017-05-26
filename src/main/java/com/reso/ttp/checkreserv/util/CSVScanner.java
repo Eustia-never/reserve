@@ -5,10 +5,14 @@
  */
 package com.reso.ttp.checkreserv.util;
 
+import com.reso.ttp.checkreserv.resources.Const;
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
@@ -27,8 +31,9 @@ public class CSVScanner {
     // Constructor
     public CSVScanner(String source) {
         try {
-            this.fr = new FileReader(source);
-            this.br = new BufferedReader(fr);
+            this.br = new BufferedReader(new InputStreamReader(new FileInputStream(source), "UTF-8"));
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(CSVScanner.class.getName()).log(Level.SEVERE, null, ex);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CSVScanner.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -39,12 +44,12 @@ public class CSVScanner {
         String[] line_str_arr;
         String line;
         try {
+            line = this.br.readLine();
             while ((line = this.br.readLine()) != null) {
-                //区切り文字","で分割する
-                line_str_arr = line.split(",");
+                //区切り文字", "で分割する
+                line_str_arr = line.split(Const.PUNCTUATION);
                 csv_list.add(line_str_arr);
             }
-            this.fr.close();
         } catch (IOException ex) {
             Logger.getLogger(CSVScanner.class.getName()).log(Level.SEVERE, null, ex);
         }
