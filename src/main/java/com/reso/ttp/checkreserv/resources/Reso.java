@@ -5,19 +5,43 @@
  */
 package com.reso.ttp.checkreserv.resources;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Stage;
+import lombok.Data;
 
 /**
  *
  * @author Hirotaka.Sasaki
  */
+@Data
 public class Reso {
 
-	public static Scene SCEME;
+	private static Reso reso;
 
-	public static Stage STAGE = null;
+	private static Scene scene = null;
+
+	public static Parent rootNode = null;
+
+	public static FXMLLoader loader;
 
 	public static String FxmlFile = null;
 
+	public static Reso getInstance() {
+		if (reso == null) {
+			reso = new Reso();
+		}
+		return reso;
+	}
+
+	public static Scene getSceneInstance() {
+		if (scene == null) {
+			scene = new Scene(rootNode, 400, 200);
+		}
+		return scene;
+	}
+
+	@SuppressWarnings({ "restriction" })
+	public void exec(Parent rootNode) {
+	}
 }

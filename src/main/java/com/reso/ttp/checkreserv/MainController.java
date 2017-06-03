@@ -10,13 +10,12 @@ import com.reso.ttp.checkreserv.DAO.EventData;
 import com.reso.ttp.checkreserv.resources.Const;
 import com.reso.ttp.checkreserv.resources.ConstFxml;
 import com.reso.ttp.checkreserv.resources.Reso;
-import com.reso.ttp.checkreserv.util.CSVScanner;
+import com.reso.ttp.checkreserv.util.CSVReader;
 import com.reso.ttp.checkreserv.util.CheckData;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
-import javafx.stage.Stage;
 
 public class MainController implements Initializable {
 
@@ -31,9 +30,8 @@ public class MainController implements Initializable {
 	private void showEvent() {
 		{
 			EventData eventData;
-			CSVScanner csv = new CSVScanner(Const.EVENT_FILE);
 
-			List<String[]> eventList = csv.read();
+			List<String[]> eventList = (new CSVReader()).read(Const.EVENT_FILE);
 			CheckData.dataSize(eventList, 2);
 
 			for (String[] event : eventList) {
@@ -53,7 +51,8 @@ public class MainController implements Initializable {
 		MainApp app = new MainApp();
 		Reso.FxmlFile = ConstFxml.ADD_MEM_NAME;
 		try {
-			app.start(new Stage());
+			MainApp.fxdate = MainApp.fxmlInstance.getAddMemberInstance();
+			app.start(MainApp.localStage);
 		} catch (Exception ex) {
 			StackTraceElement[] stElem = ex.getStackTrace();
 			for (int i = 0; i < stElem.length; i++) {

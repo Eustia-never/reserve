@@ -2,17 +2,22 @@ package com.reso.ttp.checkreserv;
 
 import com.reso.ttp.checkreserv.resources.Const;
 import com.reso.ttp.checkreserv.resources.ConstFxml;
+import com.reso.ttp.checkreserv.resources.FXData;
+import com.reso.ttp.checkreserv.resources.FXMLInstance;
 import com.reso.ttp.checkreserv.resources.Reso;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import lombok.Data;
 
 @Data
 public class MainApp extends Application {
+
+	public static FXMLInstance fxmlInstance;
+
+	public static FXData fxdate;
+
+	public static Stage localStage;
 
 	public static void main(String[] args) throws Exception {
 		launch(args);
@@ -21,19 +26,18 @@ public class MainApp extends Application {
 	@SuppressWarnings("restriction")
 	@Override
 	public void start(Stage stage) throws Exception {
-
 		if (Reso.FxmlFile == null) {
+			localStage = stage;
 			Reso.FxmlFile = ConstFxml.MAIN_FILE_NAME;
+			fxmlInstance = new FXMLInstance();
+			fxdate = fxmlInstance.getMainAppInstance();
 		}
 
-		FXMLLoader loader = new FXMLLoader();
-		Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(Reso.FxmlFile));
-
-		Scene scene = new Scene(rootNode, 400, 200);
-		scene.getStylesheets().add(Const.STYLE_SHEET_NAME);
-
+		Reso.rootNode = fxdate.getParent();
+		Reso.getSceneInstance().setRoot(fxdate.getParent());
+		Reso.getSceneInstance().getStylesheets().add(Const.STYLE_SHEET_NAME);
 		stage.setTitle("イベント予約確認");
-		stage.setScene(scene);
+		stage.setScene(Reso.getSceneInstance());
 		stage.show();
 	}
 }
