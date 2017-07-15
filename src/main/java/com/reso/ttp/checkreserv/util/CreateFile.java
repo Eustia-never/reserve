@@ -5,7 +5,6 @@
  */
 package com.reso.ttp.checkreserv.util;
 
-import com.reso.ttp.checkreserv.resources.Const;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -14,6 +13,8 @@ import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.reso.ttp.checkreserv.resources.Const;
 
 /**
  *
@@ -29,6 +30,7 @@ public class CreateFile {
             file.createNewFile();
         } catch (IOException ex) {
             Logger.getLogger(CreateFile.class.getName()).log(Level.SEVERE, null, ex);
+        	ex.printStackTrace();
         }
 
     }
@@ -44,6 +46,7 @@ public class CreateFile {
             pw.println(data);
         } catch (IOException ex) {
             Logger.getLogger(CreateFile.class.getName()).log(Level.SEVERE, null, ex);
+        	ex.printStackTrace();
         }
 
     }

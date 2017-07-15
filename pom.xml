@@ -48,7 +48,7 @@
                 <executions>
                     <execution>
                         <id>unpack-dependencies</id>
-                        
+
                         <phase>package</phase>
                         <goals>
                             <goal>exec</goal>
@@ -72,7 +72,7 @@
                     <execution>
                         <id>default-cli</id>
                         <goals>
-                            <goal>exec</goal>                            
+                            <goal>exec</goal>
                         </goals>
                         <configuration>
                             <executable>${java.home}/bin/java</executable>
@@ -80,9 +80,9 @@
                         </configuration>
                     </execution>
                 </executions>
-                
+
             </plugin>
-            
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

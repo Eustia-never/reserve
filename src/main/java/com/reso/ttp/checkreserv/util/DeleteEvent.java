@@ -1,5 +1,7 @@
 package com.reso.ttp.checkreserv.util;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.LinkedList;
@@ -27,13 +29,36 @@ public class DeleteEvent {
 	}
 
 	private static void delete() {
-		List<String[]> event = (new CSVReader()).read(Const.EVENT_FILE);
-		List<String[]> output = new LinkedList<>();
-		for (String[] str : event) {
-			if (LocalDate.parse(str[0]).isAfter(deleteDate)) {
+		List<List<String>> event = (new CSVReader()).read(Const.EVENT_FILE);
+		List<List<String>> output = new LinkedList<>();
+		File file;
+		String fileName;
+		boolean flg = false;
+		for (List<String> str : event) {
+			if (LocalDate.parse(str.get(0)).isAfter(deleteDate)) {
 				output.add(str);
+			} else {
+				flg = true;
+				fileName = str.get(0) + "_" + str.get(1) + Const.CSV;
+				file = new File(Const.EVENT_PASS + fileName);
+				file.delete();
 			}
 		}
-		deleteDate = LocalDate.now();
+		if (flg) {
+			try {
+				deleteDate = LocalDate.now();
+				file = new File(Const.EVENT_FILE);
+				file.delete();
+				file.createNewFile();
+				CSVWriter csv = new CSVWriter();
+				for (List<String> str : output) {
+					csv.write(Const.EVENT_FILE, str, false);
+				}
+				csv.getBw().close();
+			} catch (IOException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+		}
 	}
 }

@@ -10,7 +10,7 @@
     <children>
       <Button layoutX="31.0" layoutY="164.0" mnemonicParsing="false" onAction="#add" prefHeight="23.0" prefWidth="96.0" text="追加" />
       <Button layoutX="146.0" layoutY="164.0" mnemonicParsing="false" onAction="#clear" prefHeight="23.0" prefWidth="96.0" text="clear" />
-      <Button layoutX="258.0" layoutY="164.0" mnemonicParsing="false" onAction="#clear" prefHeight="23.0" prefWidth="96.0" text="キャンセル" />
+      <Button layoutX="258.0" layoutY="164.0" mnemonicParsing="false" onAction="#back" prefHeight="23.0" prefWidth="96.0" text="戻る" />
       <Label layoutX="39.0" layoutY="74.0" prefHeight="23.0" prefWidth="37.0" text="苗字" />
       <Label layoutX="39.0" layoutY="113.0" prefHeight="23.0" prefWidth="63.0" text="名前" />
       <Label layoutX="37.0" layoutY="35.0" prefHeight="23.0" prefWidth="37.0" text="ID" />

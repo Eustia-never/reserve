@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="218.0" prefWidth="400.0" styleClass="main-panel" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.reso.ttp.checkreserv.SelectMemberController">
+  <children>
+    <Button layoutX="152.0" layoutY="38.0" mnemonicParsing="false" onAction="#add" prefHeight="23.0" prefWidth="96.0" text="追加" />
+    <Button layoutX="152.0" layoutY="98.0" mnemonicParsing="false" onAction="#delete" prefHeight="23.0" prefWidth="96.0" text="削除" />
+    <Button layoutX="152.0" layoutY="163.0" mnemonicParsing="false" onAction="#back" prefHeight="23.0" prefWidth="96.0" text="戻る" />
+  </children>
+</AnchorPane>

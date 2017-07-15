@@ -15,6 +15,9 @@ public class ConstFxml {
 
     public static final String MAIN_FILE_NAME = FXML + "/main.fxml";
 
+    public static final String SEL_MEM_NAME = FXML + "/selectMember.fxml";
+
     public static final String ADD_MEM_NAME = FXML + "/addMember.fxml";
 
+    public static final String DEL_MEM_NAME = FXML + "/delMember.fxml";
 }

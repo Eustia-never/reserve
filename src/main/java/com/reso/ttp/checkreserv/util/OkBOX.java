@@ -3,10 +3,10 @@ package com.reso.ttp.checkreserv.util;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
-public class ErrAlert {
-	public static void exec(String str) {
+public class OkBOX {
+	public static void exec(String header, String str) {
 		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("エラー");
+		alert.setTitle(header);
 		alert.setHeaderText(null);
 		alert.setContentText(str);
 		alert.show();

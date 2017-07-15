@@ -5,7 +5,8 @@
  */
 package com.reso.ttp.checkreserv.resources;
 
-import lombok.*;
+import lombok.Data;
+import lombok.NonNull;
 
 /**
  *
@@ -14,13 +15,19 @@ import lombok.*;
 @Data
 public class Person {
 
-    @NonNull
-    private String id;
+	public Person(String id, String name) {
+		setId(id);
+		setName(name);
 
-    @NonNull
-    private String name;
+	}
 
-    private boolean payed;
+	@NonNull
+	private String id;
 
-    private boolean passedBand;
+	@NonNull
+	private String name;
+
+	private boolean payed;
+
+	private boolean passedBand;
 }
